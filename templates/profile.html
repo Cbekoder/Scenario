@@ -1,0 +1,32 @@
+{% extends 'header.html' %}
+
+{% block content %}
+<div class="my-card">
+    <span class="pro">PRO</span>
+    <img class="round" src="{{ user.photo.url }}" alt="user" />
+    <h3>{{ user.name }}</h3>
+    <h4>{{ user.company }}</h4>
+    <h6>{{ user.location}}</h6>
+    <p>{{ user.description }}</p>
+    <div class="buttons">
+        <button class="primary">
+            Message
+        </button>
+        <button class="primary ghost">
+            Following
+        </button>
+    </div>
+    <div class="skills">
+        <h6>Skills</h6>
+        <ul>
+            <li>UI / UX</li>
+            <li>Front End Development</li>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JavaScript</li>
+            <li>React</li>
+            <li>Node</li>
+        </ul>
+    </div>
+</div>
+{% endblock %}

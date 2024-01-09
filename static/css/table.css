@@ -1,0 +1,48 @@
+table {
+    border-collapse: collapse;
+    margin: 0 auto;
+    margin-top: 50vh; /* Adjust this value as needed */
+    transform: translateY(-50%);
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    width: 900px;
+
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    width: 2%; /* Adjust the width of the first column */
+}
+
+td:nth-child(2) {
+    width: 24%; /* Adjust the width of the second column */
+}
+
+td:nth-child(3) {
+    width: 74%; /* Adjust the width of the third column */
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style-type: none;
+}
+
+tbody {
+    display: block;
+    height: 500px; /* Adjust as needed for the maximum height of the tbody */
+    overflow-y: auto;
+}

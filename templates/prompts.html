@@ -1,0 +1,30 @@
+{% extends 'header.html' %}
+
+{% block content %}
+<div>
+    <table>
+        <tr>
+            <th>№</th>
+            <th>Keyword</th>
+            <th>Answers</th>
+        </tr>
+        {% for key in keys %}
+        <tr>
+            <td>{{ forloop.counter }}</td>
+            <td>{{ key.word }}</td>
+            <td>
+                {% if key.answers.all %}
+                <ul>
+                    {% for answer in key.answers.all %}
+                    <li>{{ answer.answer_text }}</li>
+                    {% endfor %}
+                </ul>
+                {% else %}
+                No answers available for this keyboard
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+{% endblock %}
