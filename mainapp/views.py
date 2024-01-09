@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.http import JsonResponse
-from django.views import View
+from rest_framework.views import APIView
 import requests
 from django.contrib.auth.models import User
 from rest_framework.generics import *
@@ -72,7 +72,7 @@ def list_of_scenario(request):
 # API views
 @authentication_classes([TokenAuthentication])
 @permission_classes([IsAuthenticated])
-class GetAnswersView(View):
+class GetAnswersView(APIView):
     def get(self, request, *args, **kwargs):
         # Assuming the key is passed in the request headers
         key = request.headers.get('key')  # Replace 'Your-Key-Header' with the actual header key
@@ -103,11 +103,3 @@ class GetAnswersView(View):
 
         except:
             return JsonResponse({'error': "An exception occurred"}, status=400)
-        # except Token.DoesNotExist:
-        #     return JsonResponse({'error': 'Invalid token'}, status=401)
-        #
-        # except User.DoesNotExist:  # Catch the User.DoesNotExist exception
-        #     return JsonResponse({'error': 'Invalid key'}, status=400)
-        #
-        # except Keywords.DoesNotExist:
-        #     return JsonResponse({'error': 'No keyword associated with the provided key'}, status=404)
